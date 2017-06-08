@@ -6,7 +6,7 @@ SOURCE=in/spec.yaml
 MAKETEX=scripts/make_tex.py
 MAKEYAML=scripts/make_yaml.py
 OUT=resume
-CLEAN=*.log *.aux *.bcf *.xml *.bbl *.blg *.tex out/*
+CLEAN=*.log *.aux *.bcf *.xml *.bbl *.blg *.tex
 
 resume: latex
 	pdflatex $(OUT).tex
@@ -14,6 +14,6 @@ resume: latex
 latex:
 	$(PYTHON) $(MAKETEX) -input out/test-spec.yaml -out $(OUT).tex
 yaml:
-	$(PYTHON) $(MAKEYAML) -out $(SOURCE) #out/test-spec.yaml
+	$(PYTHON) $(MAKEYAML) -out out/test-spec.yaml
 clean:
 	ls $(CLEAN) | xargs rm
